@@ -1,0 +1,78 @@
+using System;
+
+class Funcionario
+{
+    private string nome;
+    private int matricula;
+    private float salario;
+
+
+    public string getNome()
+    {
+        return this.nome;
+    }
+    public int getMatricula()
+    {
+        return this.matricula;
+    }
+    public float getSalario()
+    {
+        return this.salario;
+    }
+
+    public void setNome(string name)
+    {
+        this.nome = name;
+    }
+    public void setMatricula(int matricula)
+    {
+        this.matricula = matricula;
+    }
+    public void setSalario(float salario)
+    {
+        this.salario = salario;
+    }
+}
+
+					
+public class Program
+{
+	public static void Main()
+	{
+		Funcionario[] funcionarios = new Funcionario[4];
+        float soma = 0;
+
+		funcionarios[0] = new Funcionario();
+        funcionarios[0].setNome("Guilherme");
+        funcionarios[0].setMatricula(1234);
+        funcionarios[0].setSalario(1000);
+
+		funcionarios[1] = new Funcionario();
+        funcionarios[1].setNome("Iarllon");
+        funcionarios[1].setMatricula(5678);
+        funcionarios[1].setSalario(1000);
+
+		funcionarios[2] = new Funcionario();
+        funcionarios[2].setNome("Kauan");
+        funcionarios[2].setMatricula(9012);
+        funcionarios[2].setSalario(1000);
+
+		funcionarios[3] = new Funcionario();
+        funcionarios[3].setNome("Brenda");
+        funcionarios[3].setMatricula(3456);
+        funcionarios[3].setSalario(1000);
+
+        for (int i = 0; i < 4; i++)
+        {
+            soma = soma +  funcionarios[i].getSalario();
+        }
+        Console.WriteLine("A média salarial dos funcionarios é: " + soma / 4);
+        Console.WriteLine("Funcionarios com salario acima da média salarial: ");
+        for (int i = 0; i < 4; i++)
+        {
+            if (funcionarios[i].getSalario() > soma / 4)
+                Console.WriteLine(funcionarios[i].getNome() + " - Matricula: " + funcionarios[i].getMatricula());
+        }
+
+	}
+}
